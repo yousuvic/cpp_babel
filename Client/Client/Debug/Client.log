@@ -1,0 +1,24 @@
+﻿La génération a démarré 04/11/2015 22:11:58.
+     1>Projet "C:\Users\yous\documents\visual studio 2013\Projects\Client\Client\Client.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\yous\documents\visual studio 2013\Projects\Client\\include\p_inculde" /I"C:\Users\yous\documents\visual studio 2013\Projects\Client\\include\\" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ClientController.cpp ClientTCP.cpp Main.cpp
+         ClientTCP.cpp
+         Génération de code en cours...
+         Compilation en cours...
+         Main.cpp
+         ClientController.cpp
+         Génération de code en cours...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\Client.exe" /INCREMENTAL /NOLOGO "C:\Users\yous\documents\visual studio 2013\Projects\Client\\lib\portaudio_x86.lib" "C:\Users\yous\documents\visual studio 2013\Projects\Client\\lib\celt.lib" "C:\Users\yous\documents\visual studio 2013\Projects\Client\\lib\opus.lib" "C:\Users\yous\documents\visual studio 2013\Projects\Client\\lib\silk_common.lib" "C:\Users\yous\documents\visual studio 2013\Projects\Client\\lib\silk_fixed.lib" "C:\Users\yous\documents\visual studio 2013\Projects\Client\\lib\silk_float.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\bin\Client.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\bin\Client.lib" /MACHINE:X86 Debug\AudioManager.obj
+         Debug\ClientController.obj
+         Debug\ClientTCP.obj
+         Debug\UDPExchange.obj
+         Debug\EncodeManager.obj
+         Debug\Main.obj
+         Debug\NetworkServices.obj
+         Client.vcxproj -> C:\Users\yous\documents\visual studio 2013\Projects\Client\Client\..\bin\Client.exe
+     1>Génération du projet "C:\Users\yous\documents\visual studio 2013\Projects\Client\Client\Client.vcxproj" terminée (Build cible(s)).
+
+La génération a réussi.
+
+Temps écoulé 00:00:01.67
