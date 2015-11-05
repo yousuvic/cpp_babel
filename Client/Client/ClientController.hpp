@@ -20,6 +20,8 @@ class ClientController
 private:
 	ClientTCP*		_Tcp;
 	UDPExchange		srv;
+	bool			Caller = true;
+
 public:
 	ClientController();
 	~ClientController(void);

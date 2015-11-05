@@ -17,13 +17,13 @@ typedef struct s_Packet
 
 #include<winsock2.h>
 
-#define BUFLEN sizeof(t_Packet)
-#define PORT 4542
+#define BUFLEN	sizeof(t_Packet)
+#define PORT	4542
 
 
 //#pragma comment(lib,"ws2_32.lib") //Winsock Library
 
-#define SERVER "10.20.86.176"
+#define SERVER "10.20.86.49"
 
 class UDPExchange	:	public	IUDP
 {
@@ -35,13 +35,13 @@ public:
 	**	Server
 	*/
 	virtual	void	InitSrvUDP();
-	virtual	int	ExchangeSrvUDP();
+	virtual	int		ExchangeSrvUDP();
 
 	/*
 	**	Client
 	*/
 	virtual	void	InitClientUDP();
-	virtual	int	ExchangeCliUDP();
+	virtual	int		ExchangeCliUDP();
 
 private:
 	/*

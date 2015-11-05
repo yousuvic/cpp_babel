@@ -52,11 +52,16 @@ void ClientController::sendActionPackets()
 		memcpy(Packet.encSound, Audio->getSound(), MAX_PACKET_SIZE);
 		NetworkServices::sendMessage(_Tcp->getConnectSocket(), &Packet, PACKET_SIZE);
 	}*/
-	//srv.InitSrvUDP();
-	//srv.ExchangeSrvUDP();
-
-	srv.InitClientUDP();
-	srv.ExchangeCliUDP();
+	if (Caller == true)
+	{
+		srv.InitSrvUDP();
+		srv.ExchangeSrvUDP();
+	}
+	else
+	{
+		srv.InitClientUDP();
+		srv.ExchangeCliUDP();
+	}
 }
 	
 

@@ -8,8 +8,6 @@ AudioManager::AudioManager()
 	this->_enc = new EncodeManager;
 	this->_streamin = NULL;
 	this->_streamout = NULL;
-	for (int i = 0; i < FRAMES_PER_BUFFER; i++)
-		this->_buff[i] = 0;
 	this->_run = true;
 }
 
@@ -111,7 +109,8 @@ int			playCallback(const void *input, void *output,
 	(void)statusFlags;
 	(void)input;
 
-	dis->getEnc()->decodeAudio(dis->getData().first, out, dis->getData().second);
+	//dis->getEnc()->decodeAudio(dis->getData().first, out, dis->getData().second);
+	dis->getEnc()->decodeAudio(dis->getSound(), out, dis->getRetenc());
 	return paContinue;
 }
 
@@ -198,11 +197,6 @@ int			AudioManager::stop()
 IEncode	*AudioManager::getEnc()
 {
 	return (this->_enc);
-}
-
-const std::pair<const unsigned char *, const int>	AudioManager::getData() const
-{
-	return (std::make_pair(this->_data, this->_retenc));
 }
 
 void		AudioManager::setData(unsigned char *data)

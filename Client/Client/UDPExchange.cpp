@@ -61,8 +61,8 @@ int		UDPExchange::ExchangeSrvUDP()
 			printf("Select error\n");
 			exit(EXIT_FAILURE);
 		}
-		//if (FD_ISSET(SocketFD, &readfds))
-		//{
+		if (FD_ISSET(SocketFD, &readfds))
+		{
 			Is_Set = true;
 			//try to receive some data, this is a blocking call
 			if ((recv_len = recvfrom(SocketFD, (char *)&Packet, BUFLEN, 0, (struct sockaddr *)&si_other, &slen)) == SOCKET_ERROR)
@@ -77,12 +77,12 @@ int		UDPExchange::ExchangeSrvUDP()
 				Audio->setData(Packet.Sound);
 				std::cout << Packet.Retenc << std::endl;
 			}
-		//}
+		}
 		//print details of the client/peer and the data received
 		//printf("Received packet from %s:%d\n", inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port));
 		//printf("Data: %s\n", Packet);
 		
-		/*if (Is_Set == true)
+		if (Is_Set == true)
 		{
 			if (FD_ISSET(SocketFD, &writefds))
 			{
@@ -93,9 +93,10 @@ int		UDPExchange::ExchangeSrvUDP()
 					exit(EXIT_FAILURE);
 				}
 			}
-		}*/
+		}
 	}
 	closesocket(SocketFD);
+	Audio->stop();
 	WSACleanup();
 	return 0;
 }
@@ -154,22 +155,22 @@ int		UDPExchange::ExchangeCliUDP()
 		//std::cin >> message;
 		//send the message
 
-		//if (FD_ISSET(ClientSocket, &Clientwritefds))
-		//{
+		if (FD_ISSET(ClientSocket, &Clientwritefds))
+		{
 			Is_Struct_Set = true;
 			if (Audio->getSound() != NULL)
 			{
 				Packet.Retenc = Audio->getRetenc();
 				Packet.Size = 480;
 				memcpy(Packet.Sound, Audio->getSound(), 480);
-				std::cout << Packet.Retenc << std::endl;
+				//std::cout << Packet.Retenc << std::endl;
 			}
 			if (sendto(ClientSocket, (char *)&Packet, BUFLEN, 0, (struct sockaddr *) &si_otherCli, slenClient) == SOCKET_ERROR)
 			{
 				printf("sendto() failed with error code : %d", WSAGetLastError());
 				exit(EXIT_FAILURE);
 			}
-		//}
+		}
 		
 
 		//receive a reply and print it
@@ -191,6 +192,7 @@ int		UDPExchange::ExchangeCliUDP()
 		puts(buf);*/
 	}
 	closesocket(ClientSocket);
+	Audio->stop();
 	WSACleanup();
 	return 0;
 }
