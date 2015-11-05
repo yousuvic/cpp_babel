@@ -35,13 +35,13 @@ public:
 	**	Server
 	*/
 	virtual	void	InitSrvUDP();
-	virtual	int		ExchangeSrvUDP();
+	virtual	int	ExchangeSrvUDP();
 
 	/*
 	**	Client
 	*/
-	void	InitClientUDP();
-	int		ExchangeCliUDP();
+	virtual	void	InitClientUDP();
+	virtual	int	ExchangeCliUDP();
 
 private:
 	/*
