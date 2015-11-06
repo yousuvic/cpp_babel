@@ -1,0 +1,49 @@
+﻿La génération a démarré 07/11/2015 00:17:14.
+     1>Projet "C:\Users\yous\Documents\GitHub\cpp_babel\Merge\Client\Client.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\yous\Documents\GitHub\cpp_babel\Merge\\include\p_inculde /IC:\Users\yous\Documents\GitHub\cpp_babel\Merge\\include\ /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt AudioManager.cpp ClientController.cpp ClientTCPWin.cpp EncodeManager.cpp Main.cpp NetworkServices.cpp UDPExchangeWin.cpp
+         UDPExchangeWin.cpp
+     1>UDPExchangeWin.cpp(18): warning C4244: '=' : conversion de 'SOCKET' en 'int', perte possible de données
+     1>UDPExchangeWin.cpp(136): warning C4244: '=' : conversion de 'SOCKET' en 'int', perte possible de données
+         NetworkServices.cpp
+         Main.cpp
+         EncodeManager.cpp
+         ClientTCPWin.cpp
+     1>ClientTCPWin.cpp(23): warning C4309: '=' : troncation de valeur de constante
+     1>ClientTCPWin.cpp(54): warning C4244: '=' : conversion de 'SOCKET' en 'int', perte possible de données
+     1>ClientTCPWin.cpp(66): warning C4309: '=' : troncation de valeur de constante
+         ClientController.cpp
+         AudioManager.cpp
+         Génération de code en cours...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\yous\Documents\GitHub\cpp_babel\Merge\x64\Debug\Client.exe" /INCREMENTAL /NOLOGO C:\Users\yous\Documents\GitHub\cpp_babel\Merge\\lib\portaudio_x86.lib C:\Users\yous\Documents\GitHub\cpp_babel\Merge\\lib\celt.lib C:\Users\yous\Documents\GitHub\cpp_babel\Merge\\lib\opus.lib C:\Users\yous\Documents\GitHub\cpp_babel\Merge\\lib\silk_common.lib C:\Users\yous\Documents\GitHub\cpp_babel\Merge\\lib\silk_fixed.lib C:\Users\yous\Documents\GitHub\cpp_babel\Merge\\lib\silk_float.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\yous\Documents\GitHub\cpp_babel\Merge\x64\Debug\Client.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\yous\Documents\GitHub\cpp_babel\Merge\x64\Debug\Client.lib" /MACHINE:X64 x64\Debug\AudioManager.obj
+         x64\Debug\ClientController.obj
+         x64\Debug\ClientTCPWin.obj
+         x64\Debug\EncodeManager.obj
+         x64\Debug\Main.obj
+         x64\Debug\NetworkServices.obj
+         x64\Debug\UDPExchangeWin.obj
+     1>AudioManager.obj : error LNK2019: symbole externe non résolu Pa_GetErrorText référencé dans la fonction "public: virtual void __cdecl AudioManager::errorAudio(void)" (?errorAudio@AudioManager@@UEAAXXZ)
+     1>AudioManager.obj : error LNK2019: symbole externe non résolu Pa_Initialize référencé dans la fonction "public: virtual int __cdecl AudioManager::initAudio(void)" (?initAudio@AudioManager@@UEAAHXZ)
+     1>AudioManager.obj : error LNK2019: symbole externe non résolu Pa_Terminate référencé dans la fonction "public: virtual __cdecl AudioManager::~AudioManager(void)" (??1AudioManager@@UEAA@XZ)
+     1>AudioManager.obj : error LNK2019: symbole externe non résolu Pa_GetDefaultInputDevice référencé dans la fonction "public: virtual void __cdecl AudioManager::initInput(void)" (?initInput@AudioManager@@UEAAXXZ)
+     1>AudioManager.obj : error LNK2019: symbole externe non résolu Pa_GetDefaultOutputDevice référencé dans la fonction "public: virtual void __cdecl AudioManager::initOutput(void)" (?initOutput@AudioManager@@UEAAXXZ)
+     1>AudioManager.obj : error LNK2019: symbole externe non résolu Pa_GetDeviceInfo référencé dans la fonction "public: virtual void __cdecl AudioManager::initInput(void)" (?initInput@AudioManager@@UEAAXXZ)
+     1>AudioManager.obj : error LNK2019: symbole externe non résolu Pa_OpenStream référencé dans la fonction "public: virtual int __cdecl AudioManager::setupStream(void)" (?setupStream@AudioManager@@UEAAHXZ)
+     1>AudioManager.obj : error LNK2019: symbole externe non résolu Pa_CloseStream référencé dans la fonction "public: virtual __cdecl AudioManager::~AudioManager(void)" (??1AudioManager@@UEAA@XZ)
+     1>AudioManager.obj : error LNK2019: symbole externe non résolu Pa_StartStream référencé dans la fonction "public: virtual int __cdecl AudioManager::start(void)" (?start@AudioManager@@UEAAHXZ)
+     1>AudioManager.obj : error LNK2019: symbole externe non résolu Pa_StopStream référencé dans la fonction "public: virtual int __cdecl AudioManager::stop(void)" (?stop@AudioManager@@UEAAHXZ)
+     1>AudioManager.obj : error LNK2019: symbole externe non résolu Pa_AbortStream référencé dans la fonction "public: virtual void __cdecl AudioManager::errorAudio(void)" (?errorAudio@AudioManager@@UEAAXXZ)
+     1>EncodeManager.obj : error LNK2019: symbole externe non résolu opus_encoder_create référencé dans la fonction "public: __cdecl EncodeManager::EncodeManager(void)" (??0EncodeManager@@QEAA@XZ)
+     1>EncodeManager.obj : error LNK2019: symbole externe non résolu opus_encode_float référencé dans la fonction "public: virtual unsigned char * __cdecl EncodeManager::encodeAudio(float const *,int *)" (?encodeAudio@EncodeManager@@UEAAPEAEPEBMPEAH@Z)
+     1>EncodeManager.obj : error LNK2019: symbole externe non résolu opus_encoder_destroy référencé dans la fonction "public: virtual __cdecl EncodeManager::~EncodeManager(void)" (??1EncodeManager@@UEAA@XZ)
+     1>EncodeManager.obj : error LNK2019: symbole externe non résolu opus_encoder_ctl référencé dans la fonction "public: __cdecl EncodeManager::EncodeManager(void)" (??0EncodeManager@@QEAA@XZ)
+     1>EncodeManager.obj : error LNK2019: symbole externe non résolu opus_decoder_create référencé dans la fonction "public: __cdecl EncodeManager::EncodeManager(void)" (??0EncodeManager@@QEAA@XZ)
+     1>EncodeManager.obj : error LNK2019: symbole externe non résolu opus_decode_float référencé dans la fonction "public: virtual void __cdecl EncodeManager::decodeAudio(unsigned char const *,float *,int)" (?decodeAudio@EncodeManager@@UEAAXPEBEPEAMH@Z)
+     1>EncodeManager.obj : error LNK2019: symbole externe non résolu opus_decoder_destroy référencé dans la fonction "public: virtual __cdecl EncodeManager::~EncodeManager(void)" (??1EncodeManager@@UEAA@XZ)
+     1>C:\Users\yous\Documents\GitHub\cpp_babel\Merge\x64\Debug\Client.exe : fatal error LNK1120: 18 externes non résolus
+     1>Génération du projet "C:\Users\yous\Documents\GitHub\cpp_babel\Merge\Client\Client.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+Temps écoulé 00:00:04.37

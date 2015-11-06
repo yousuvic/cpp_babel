@@ -95,13 +95,14 @@ int		UDPExchangeWin::ExchangeSrvUDP()
 					sendPacket.Retenc = Audio->getRetenc();
 					sendPacket.Size = 480;
 					memcpy(sendPacket.Sound, Audio->getData(), 480);
-					//std::cout << rPacket.Retenc << std::endl;
-				}
-				//now reply the client with the same data
-				if (sendto(SocketFD, (char *)&sendPacket, BUFLEN, 0, (struct sockaddr*)&si_other, slen) == SOCKET_ERROR)
-				{
-					printf("sendto() failed with error code : %d", WSAGetLastError());
-					exit(EXIT_FAILURE);
+					std::cout << sendPacket.Retenc << std::endl;
+
+					//now reply the client with the same data
+					if (sendto(SocketFD, (char *)&sendPacket, BUFLEN, 0, (struct sockaddr*)&si_other, slen) == SOCKET_ERROR)
+					{
+						printf("sendto() failed with error code : %d", WSAGetLastError());
+						exit(EXIT_FAILURE);
+					}
 				}
 			}
 		}
@@ -176,21 +177,22 @@ int		UDPExchangeWin::ExchangeCliUDP()
 
 		if (FD_ISSET(ClientSocket, &Clientwritefds))
 		{
-			Is_Struct_Set = true;
 			if (Audio->getData() != NULL)
 			{
+				Is_Struct_Set = true;
 				sendPacket.Retenc = Audio->getRetenc();
 				sendPacket.Size = 480;
 				memcpy(sendPacket.Sound, Audio->getData(), 480);
 				//std::cout << Packet.Retenc << std::endl;
-			}
-			if (sendto(ClientSocket, (char *)&sendPacket, BUFLEN, 0, (struct sockaddr *) &si_otherCli, slenClient) == SOCKET_ERROR)
-			{
-				printf("sendto() failed with error code : %d", WSAGetLastError());
-				exit(EXIT_FAILURE);
+
+				if (sendto(ClientSocket, (char *)&sendPacket, BUFLEN, 0, (struct sockaddr *) &si_otherCli, slenClient) == SOCKET_ERROR)
+				{
+					printf("sendto() failed with error code : %d", WSAGetLastError());
+					exit(EXIT_FAILURE);
+				}
 			}
 		}
-		
+
 
 		//receive a reply and print it
 		//clear the buffer by filling null, it might have previously received data
@@ -210,14 +212,14 @@ int		UDPExchangeWin::ExchangeCliUDP()
 					Audio->setReceivedRetenc(receivePacket.Retenc);
 					Audio->setReceivedData(receivePacket.Sound);
 					receivePacket.Size = 480;
-					//std::cout << rPacket.Retenc << std::endl;
+					std::cout << "tttttttttttttttttttttt" << std::endl;
 					//Audio->setData(Packet.Sound);
 					//Audio->setRetenc(Packet.Retenc);
 					//Packet.Size = 480;
 				}
 			}
 		}
-		
+
 		//puts(buf);
 	}
 	closesocket(ClientSocket);
