@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\TCP-CLIENT">
+      <UniqueIdentifier>{85c2f4f4-4532-41f2-9ec4-4d613d2ee54d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Controller">
+      <UniqueIdentifier>{087a1fc1-3fa3-4b61-b957-1f7bb76a133d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Audio">
+      <UniqueIdentifier>{c93fcb47-f30c-4634-829b-d8c3609f8a8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Audio">
+      <UniqueIdentifier>{3dc79a5c-1b8f-43d5-91f1-32893e034728}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Controller">
+      <UniqueIdentifier>{c968fdc7-f340-4fdb-9450-740d4e4d4176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\TCP-Client">
+      <UniqueIdentifier>{67b82f61-9e2f-4a42-b851-85e123c64816}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Abstraction">
+      <UniqueIdentifier>{ea125274-11c7-4467-8343-2b5512b49a8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Abstraction\Audio">
+      <UniqueIdentifier>{8d0594a3-bb69-4535-b5a7-d86431e86e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\UDP-CLIENT">
+      <UniqueIdentifier>{10ee4a51-b76b-4bc8-9eee-bbf18734e00e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UDP-CLIENT">
+      <UniqueIdentifier>{8555d324-4309-4cd7-a28c-6152247ae35c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Abstraction\UDP">
+      <UniqueIdentifier>{4a42aba5-37ba-4b8f-a93a-36f730719456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Abstraction\TCP">
+      <UniqueIdentifier>{6b320a74-f129-4755-995e-bd306ffc28cc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NetworkServices.hpp">
+      <Filter>Fichiers d%27en-tête\TCP-CLIENT</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientController.hpp">
+      <Filter>Fichiers d%27en-tête\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioManager.hpp">
+      <Filter>Fichiers d%27en-tête\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="EncodeManager.hpp">
+      <Filter>Fichiers d%27en-tête\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkData.h">
+      <Filter>Fichiers d%27en-tête\TCP-CLIENT</Filter>
+    </ClInclude>
+    <ClInclude Include="IEncode.hpp">
+      <Filter>Fichiers d%27en-tête\Abstraction\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioOption.h">
+      <Filter>Fichiers d%27en-tête\Abstraction</Filter>
+    </ClInclude>
+    <ClInclude Include="IAudio.hpp">
+      <Filter>Fichiers d%27en-tête\Abstraction\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="UDPExchangeWin.hpp">
+      <Filter>Fichiers d%27en-tête\UDP-CLIENT</Filter>
+    </ClInclude>
+    <ClInclude Include="IUDPExchange.hpp">
+      <Filter>Fichiers d%27en-tête\Abstraction\UDP</Filter>
+    </ClInclude>
+    <ClInclude Include="IClientTCP.h">
+      <Filter>Fichiers d%27en-tête\Abstraction\TCP</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientTCPWin.hpp">
+      <Filter>Fichiers d%27en-tête\TCP-CLIENT</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
+      <Filter>Fichiers sources\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="EncodeManager.cpp">
+      <Filter>Fichiers sources\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientController.cpp">
+      <Filter>Fichiers sources\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkServices.cpp">
+      <Filter>Fichiers sources\TCP-Client</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientTCPWin.cpp">
+      <Filter>Fichiers sources\TCP-Client</Filter>
+    </ClCompile>
+    <ClCompile Include="UDPExchangeWin.cpp">
+      <Filter>Fichiers sources\UDP-CLIENT</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
