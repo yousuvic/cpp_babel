@@ -16,7 +16,9 @@ private:
 	IEncode								*_enc;
 	bool								_run;
 	unsigned char						*_data;
+	unsigned char						*_receivedData;
 	int									_retenc;
+	int									_receivedRetenc;
 
 public:
 	AudioManager();
@@ -33,5 +35,17 @@ public:
 	virtual void					setData(unsigned char *);
 	virtual const int				getRetenc() const;
 	virtual void					setRetenc(int);
-	virtual unsigned char*			getSound() const;
+	virtual unsigned char*			getData() const;
+	virtual	void					setReceivedData(unsigned char *);
+	virtual	unsigned char			*getReceivedData() const;
+	virtual	void						setReceivedRetenc(int);
+	virtual	int						getReceivedRetenc() const;
+
+	/*virtual void					initialize();
+	virtual void					initInputDevice();
+	virtual void					initOutputDevice();
+	virtual void					openPlayStream();
+	virtual void					openRecordStream();
+	virtual void					recordSound();
+	virtual void					playSound();*/
 };
