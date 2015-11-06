@@ -24,10 +24,23 @@ public:
 	/*	Getter	*/
 	virtual IEncode *				getEnc() = 0;
 	virtual const int				getRetenc() const = 0;
-	virtual unsigned char *			getSound() const = 0;
+	virtual unsigned char *			getData() const = 0;
+	virtual	unsigned char			*getReceivedData() const = 0;
+	virtual	int						getReceivedRetenc() const = 0;
 	/*	Setter	*/
 	virtual void					setData(unsigned char *) = 0;
 	virtual void					setRetenc(int) = 0;
+	virtual	void					setReceivedData(unsigned char *) = 0;
+	virtual	void						setReceivedRetenc(int) = 0;
+	
+
+	/*virtual void					initialize() = 0;
+	virtual void					initInputDevice() = 0;
+	virtual void					initOutputDevice() = 0;
+	virtual void					openPlayStream() = 0;
+	virtual void					openRecordStream() = 0;
+	virtual void					recordSound() = 0;
+	virtual void					playSound() = 0;*/
 };
 
 #endif // !IAUDIO_HPP

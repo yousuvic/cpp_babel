@@ -42,6 +42,8 @@ int		UDPExchange::ExchangeSrvUDP()
 	Audio->initAudio();
 	Audio->start();
 
+	tv.tv_sec = 10;
+	tv.tv_usec = 0;
 	//keep listening for data
 	while (1)
 	{
@@ -51,12 +53,11 @@ int		UDPExchange::ExchangeSrvUDP()
 		FD_SET(SocketFD, &readfds);
 		FD_SET(SocketFD, &writefds);
 		//printf("Waiting for data...");
-		fflush(stdout);
+		//fflush(stdout);
 
 		//clear the buffer by filling null, it might have previously received data
 		//memset(Packet, '\0', BUFLEN);
-
-		if ((select(SocketFD + 1, &readfds, &writefds, NULL, NULL)) == -1)
+		if ((select(SocketFD + 1, &readfds, &writefds, NULL, &tv)) == -1)
 		{
 			printf("Select error\n");
 			exit(EXIT_FAILURE);
@@ -72,22 +73,32 @@ int		UDPExchange::ExchangeSrvUDP()
 			}
 			if (Packet.Sound != NULL)
 			{
-				Audio->setRetenc(Packet.Retenc);
+				Audio->setReceivedRetenc(Packet.Retenc);
+				Audio->setReceivedData(Packet.Sound);
+				Packet.Size = 480;
+				std::cout << Packet.Retenc << std::endl;
+				/*Audio->setRetenc(Packet.Retenc);
 				Packet.Size = 480;
 				Audio->setData(Packet.Sound);
-				std::cout << Packet.Retenc << std::endl;
+				std::cout << Packet.Retenc << std::endl;*/
 			}
 		}
 		//print details of the client/peer and the data received
 		//printf("Received packet from %s:%d\n", inet_ntoa(si_other.sin_addr), ntohs(si_other.sin_port));
 		//printf("Data: %s\n", Packet);
-		
 		if (Is_Set == true)
 		{
 			if (FD_ISSET(SocketFD, &writefds))
 			{
+				if (Audio->getData() != NULL)
+				{
+					Packet.Retenc = Audio->getRetenc();
+					Packet.Size = 480;
+					memcpy(Packet.Sound, Audio->getData(), 480);
+					std::cout << Packet.Retenc << std::endl;
+				}
 				//now reply the client with the same data
-				if (sendto(SocketFD, Packet, recv_len, 0, (struct sockaddr*)&si_other, slen) == SOCKET_ERROR)
+				if (sendto(SocketFD, (char *)&Packet, BUFLEN, 0, (struct sockaddr*)&si_other, slen) == SOCKET_ERROR)
 				{
 					printf("sendto() failed with error code : %d", WSAGetLastError());
 					exit(EXIT_FAILURE);
@@ -141,6 +152,9 @@ int		UDPExchange::ExchangeCliUDP()
 
 	Audio->initAudio();
 	Audio->start();
+
+	tv.tv_sec = 10;
+	tv.tv_usec = 0;
 	//start communication
 	while (1)
 	{
@@ -154,16 +168,21 @@ int		UDPExchange::ExchangeCliUDP()
 		//gets(message);
 		//std::cin >> message;
 		//send the message
+		if ((select(SocketFD + 1, &Clientreadfds, &Clientwritefds, NULL, &tv)) == -1)
+		{
+			printf("Select error\n");
+			exit(EXIT_FAILURE);
+		}
 
 		if (FD_ISSET(ClientSocket, &Clientwritefds))
 		{
 			Is_Struct_Set = true;
-			if (Audio->getSound() != NULL)
+			if (Audio->getData() != NULL)
 			{
 				Packet.Retenc = Audio->getRetenc();
 				Packet.Size = 480;
-				memcpy(Packet.Sound, Audio->getSound(), 480);
-				//std::cout << Packet.Retenc << std::endl;
+				memcpy(Packet.Sound, Audio->getData(), 480);
+				std::cout << Packet.Retenc << std::endl;
 			}
 			if (sendto(ClientSocket, (char *)&Packet, BUFLEN, 0, (struct sockaddr *) &si_otherCli, slenClient) == SOCKET_ERROR)
 			{
@@ -177,19 +196,30 @@ int		UDPExchange::ExchangeCliUDP()
 		//clear the buffer by filling null, it might have previously received data
 		//memset(buf, '\0', BUFLEN);
 		//try to receive some data, this is a blocking call
-		/*if (Is_Struct_Set == true)
+		if (Is_Struct_Set == true && slen > 0)
 		{
 			if (FD_ISSET(ClientSocket, &Clientreadfds))
 			{
-				if (recvfrom(ClientSocket, buf, BUFLEN, 0, (struct sockaddr *) &si_otherCli, &slenClient) == SOCKET_ERROR)
+				if (recvfrom(ClientSocket, (char *)&Packet, BUFLEN, 0, (struct sockaddr *) &si_otherCli, &slenClient) == SOCKET_ERROR)
 				{
 					printf("recvfrom() failed with error code : %d", WSAGetLastError());
 					exit(EXIT_FAILURE);
 				}
+				if (Packet.Sound != NULL)
+				{
+					Audio->setReceivedRetenc(Packet.Retenc);
+					Audio->setReceivedData(Packet.Sound);
+					Packet.Size = 480;
+					std::cout << Packet.Retenc << std::endl;
+
+					//Audio->setData(Packet.Sound);
+					//Audio->setRetenc(Packet.Retenc);
+					//Packet.Size = 480;
+				}
 			}
 		}
 		
-		puts(buf);*/
+		//puts(buf);
 	}
 	closesocket(ClientSocket);
 	Audio->stop();

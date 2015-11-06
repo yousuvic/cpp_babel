@@ -20,7 +20,7 @@ class ClientController
 private:
 	ClientTCP*		_Tcp;
 	UDPExchange		srv;
-	bool			Caller = true;
+	bool			Caller = false;
 
 public:
 	ClientController();
