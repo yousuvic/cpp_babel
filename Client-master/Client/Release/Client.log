@@ -1,0 +1,23 @@
+﻿La génération a démarré 29/10/2015 04:28:23.
+     1>Projet "C:\Users\yous\documents\visual studio 2013\Projects\Client\Client\Client.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\yous\documents\visual studio 2013\Projects\Client\Release\Client.exe" /NOLOGO "C:\Users\yous\documents\visual studio 2013\Projects\Client\\lib\portaudio_x86.lib" "C:\Users\yous\documents\visual studio 2013\Projects\Client\\lib\celt.lib" "C:\Users\yous\documents\visual studio 2013\Projects\Client\\lib\opus.lib" "C:\Users\yous\documents\visual studio 2013\Projects\Client\\lib\silk_common.lib" "C:\Users\yous\documents\visual studio 2013\Projects\Client\\lib\silk_fixed.lib" "C:\Users\yous\documents\visual studio 2013\Projects\Client\\lib\silk_float.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\yous\documents\visual studio 2013\Projects\Client\Release\Client.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\yous\documents\visual studio 2013\Projects\Client\Release\Client.lib" /MACHINE:X86 /SAFESEH Release\AudioManager.obj
+         Release\ClientController.obj
+         Release\ClientTCP.obj
+         Release\EncodeManager.obj
+         Release\Main.obj
+         Release\NetworkServices.obj
+     1>silk_common.lib(dec_API.obj) : warning LNK4075: ' /EDITANDCONTINUE' ignoré à cause de la spécification '/OPT:ICF'
+     1>LIBCMTD.lib(crt0init.obj) : error LNK2005: ___xi_a déjà défini(e) dans MSVCRT.lib(cinitexe.obj)
+     1>LIBCMTD.lib(crt0init.obj) : error LNK2005: ___xi_z déjà défini(e) dans MSVCRT.lib(cinitexe.obj)
+     1>LIBCMTD.lib(crt0init.obj) : error LNK2005: ___xc_a déjà défini(e) dans MSVCRT.lib(cinitexe.obj)
+     1>LIBCMTD.lib(crt0init.obj) : error LNK2005: ___xc_z déjà défini(e) dans MSVCRT.lib(cinitexe.obj)
+            Création de la bibliothèque C:\Users\yous\documents\visual studio 2013\Projects\Client\Release\Client.lib et de l'objet C:\Users\yous\documents\visual studio 2013\Projects\Client\Release\Client.exp
+     1>LINK : warning LNK4098: conflit entre la bibliothèque par défaut 'MSVCRT' et les autres bibliothèques ; utilisez /NODEFAULTLIB:library
+     1>LINK : warning LNK4098: conflit entre la bibliothèque par défaut 'LIBCMTD' et les autres bibliothèques ; utilisez /NODEFAULTLIB:library
+     1>C:\Users\yous\documents\visual studio 2013\Projects\Client\Release\Client.exe : fatal error LNK1169: un ou plusieurs symboles définis à différentes reprises ont été rencontrés
+     1>Génération du projet "C:\Users\yous\documents\visual studio 2013\Projects\Client\Client\Client.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+Temps écoulé 00:00:00.41
