@@ -23,7 +23,7 @@ typedef struct s_Packet
 
 //#pragma comment(lib,"ws2_32.lib") //Winsock Library
 
-#define SERVER "192.168.0.105"
+#define SERVER "10.20.86.49"
 
 class UDPExchange	:	public	IUDP
 {
@@ -52,7 +52,8 @@ private:
 	struct sockaddr_in	si_other;
 	int					slen;
 	int					recv_len;
-	t_Packet			Packet;
+	t_Packet			sendPacket;
+	t_Packet			receivePacket;
 	WSADATA				wsa;
 
 	/*
@@ -76,7 +77,7 @@ private:
 	fd_set	Clientreadfds;
 	fd_set	Clientwritefds;
 	bool	Is_Struct_Set = false;
-	struct timeval        tv;
+	struct timeval			tv;
 };
 
 #elif __linux__

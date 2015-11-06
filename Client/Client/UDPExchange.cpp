@@ -66,17 +66,17 @@ int		UDPExchange::ExchangeSrvUDP()
 		{
 			Is_Set = true;
 			//try to receive some data, this is a blocking call
-			if ((recv_len = recvfrom(SocketFD, (char *)&Packet, BUFLEN, 0, (struct sockaddr *)&si_other, &slen)) == SOCKET_ERROR)
+			if ((recv_len = recvfrom(SocketFD, (char *)&receivePacket, BUFLEN, 0, (struct sockaddr *)&si_other, &slen)) == SOCKET_ERROR)
 			{
 				printf("recvfrom() failed with error code : %d", WSAGetLastError());
 				exit(EXIT_FAILURE);
 			}
-			if (Packet.Sound != NULL)
+			if (receivePacket.Sound != NULL)
 			{
-				Audio->setReceivedRetenc(Packet.Retenc);
-				Audio->setReceivedData(Packet.Sound);
-				Packet.Size = 480;
-				std::cout << Packet.Retenc << std::endl;
+				Audio->setReceivedRetenc(receivePacket.Retenc);
+				Audio->setReceivedData(receivePacket.Sound);
+				receivePacket.Size = 480;
+				//std::cout << Audio->getReceivedRetenc() << std::endl;
 				/*Audio->setRetenc(Packet.Retenc);
 				Packet.Size = 480;
 				Audio->setData(Packet.Sound);
@@ -92,13 +92,13 @@ int		UDPExchange::ExchangeSrvUDP()
 			{
 				if (Audio->getData() != NULL)
 				{
-					Packet.Retenc = Audio->getRetenc();
-					Packet.Size = 480;
-					memcpy(Packet.Sound, Audio->getData(), 480);
-					std::cout << Packet.Retenc << std::endl;
+					sendPacket.Retenc = Audio->getRetenc();
+					sendPacket.Size = 480;
+					memcpy(sendPacket.Sound, Audio->getData(), 480);
+					//std::cout << rPacket.Retenc << std::endl;
 				}
 				//now reply the client with the same data
-				if (sendto(SocketFD, (char *)&Packet, BUFLEN, 0, (struct sockaddr*)&si_other, slen) == SOCKET_ERROR)
+				if (sendto(SocketFD, (char *)&sendPacket, BUFLEN, 0, (struct sockaddr*)&si_other, slen) == SOCKET_ERROR)
 				{
 					printf("sendto() failed with error code : %d", WSAGetLastError());
 					exit(EXIT_FAILURE);
@@ -168,7 +168,7 @@ int		UDPExchange::ExchangeCliUDP()
 		//gets(message);
 		//std::cin >> message;
 		//send the message
-		if ((select(SocketFD + 1, &Clientreadfds, &Clientwritefds, NULL, &tv)) == -1)
+		if ((select(ClientSocket + 1, &Clientreadfds, &Clientwritefds, NULL, &tv)) == -1)
 		{
 			printf("Select error\n");
 			exit(EXIT_FAILURE);
@@ -179,12 +179,12 @@ int		UDPExchange::ExchangeCliUDP()
 			Is_Struct_Set = true;
 			if (Audio->getData() != NULL)
 			{
-				Packet.Retenc = Audio->getRetenc();
-				Packet.Size = 480;
-				memcpy(Packet.Sound, Audio->getData(), 480);
-				std::cout << Packet.Retenc << std::endl;
+				sendPacket.Retenc = Audio->getRetenc();
+				sendPacket.Size = 480;
+				memcpy(sendPacket.Sound, Audio->getData(), 480);
+				//std::cout << Packet.Retenc << std::endl;
 			}
-			if (sendto(ClientSocket, (char *)&Packet, BUFLEN, 0, (struct sockaddr *) &si_otherCli, slenClient) == SOCKET_ERROR)
+			if (sendto(ClientSocket, (char *)&sendPacket, BUFLEN, 0, (struct sockaddr *) &si_otherCli, slenClient) == SOCKET_ERROR)
 			{
 				printf("sendto() failed with error code : %d", WSAGetLastError());
 				exit(EXIT_FAILURE);
@@ -196,22 +196,21 @@ int		UDPExchange::ExchangeCliUDP()
 		//clear the buffer by filling null, it might have previously received data
 		//memset(buf, '\0', BUFLEN);
 		//try to receive some data, this is a blocking call
-		if (Is_Struct_Set == true && slen > 0)
+		if (Is_Struct_Set == true)
 		{
 			if (FD_ISSET(ClientSocket, &Clientreadfds))
 			{
-				if (recvfrom(ClientSocket, (char *)&Packet, BUFLEN, 0, (struct sockaddr *) &si_otherCli, &slenClient) == SOCKET_ERROR)
+				if (recvfrom(ClientSocket, (char *)&receivePacket, BUFLEN, 0, (struct sockaddr *) &si_otherCli, &slenClient) == SOCKET_ERROR)
 				{
 					printf("recvfrom() failed with error code : %d", WSAGetLastError());
 					exit(EXIT_FAILURE);
 				}
-				if (Packet.Sound != NULL)
+				if (receivePacket.Sound != NULL)
 				{
-					Audio->setReceivedRetenc(Packet.Retenc);
-					Audio->setReceivedData(Packet.Sound);
-					Packet.Size = 480;
-					std::cout << Packet.Retenc << std::endl;
-
+					Audio->setReceivedRetenc(receivePacket.Retenc);
+					Audio->setReceivedData(receivePacket.Sound);
+					receivePacket.Size = 480;
+					//std::cout << rPacket.Retenc << std::endl;
 					//Audio->setData(Packet.Sound);
 					//Audio->setRetenc(Packet.Retenc);
 					//Packet.Size = 480;

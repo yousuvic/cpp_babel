@@ -52,6 +52,7 @@ void ClientController::sendActionPackets()
 		memcpy(Packet.encSound, Audio->getSound(), MAX_PACKET_SIZE);
 		NetworkServices::sendMessage(_Tcp->getConnectSocket(), &Packet, PACKET_SIZE);
 	}*/
+	Caller = true;
 	if (Caller == true)
 	{
 		srv.InitSrvUDP();
