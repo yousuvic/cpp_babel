@@ -22,11 +22,12 @@ private:
 #ifdef _WIN32
 	ClientTCPWin*		_Tcp;
 	UDPExchangeWin		srv;
+	bool				Caller = false;
 #else
 	ClientTCPLinux*		_Tcp;
 	UDPExchangeLinux	srv;
+	bool				Caller;
 #endif
-	bool			Caller = false;
 
 public:
 	ClientController();

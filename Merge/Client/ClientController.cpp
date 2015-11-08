@@ -68,6 +68,8 @@ void ClientController::sendActionPackets()
 
 ClientController::ClientController(void)
 {
+	this->Caller = false;
+
 	/*_Tcp = new ClientTCP();
 
 	this->_Tcp->SocketInit();
