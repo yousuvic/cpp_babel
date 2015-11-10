@@ -21,7 +21,7 @@ typedef struct s_Packet
 #define BUFLEN 		sizeof(t_Packet)
 #define PORT 		"4542"
 
-#define SERVER 		"127.0.0.1"
+#define SERVER 		"10.20.86.60"
 
 class UDPExchangeLinux : public IUDPExchange
 {

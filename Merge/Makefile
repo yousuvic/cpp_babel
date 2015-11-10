@@ -12,7 +12,7 @@ SRC			=	Client/AudioManager.cpp		\
 
 OBJ			=	$(SRC:.cpp=.o)
 
-NAME		=	bin/babel_client_client
+NAME		=	bin/babel_client
 
 GCCFLAGS	=	-lportaudio -lopus
 

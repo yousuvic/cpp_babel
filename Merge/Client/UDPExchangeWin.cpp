@@ -202,7 +202,7 @@ int		UDPExchangeWin::ExchangeCliUDP()
 		{
 			if (FD_ISSET(ClientSocket, &Clientreadfds))
 			{
-				if (recvfrom(ClientSocket, (char *)&receivePacket, BUFLEN, 0, (struct sockaddr *) &si_otherCli, &slenClient) == SOCKET_ERROR)
+				if (recvfrom(ClientSocket, (char *)&receivePacket, BUFLEN, 0, (struct sockaddr *)&si_other, &slen) == SOCKET_ERROR)
 				{
 					printf("recvfrom() failed with error code : %d", WSAGetLastError());
 					exit(EXIT_FAILURE);
