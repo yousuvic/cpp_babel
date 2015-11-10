@@ -49,30 +49,32 @@ int 		UDPExchangeLinux::ExchangeSrvUDP()
 
 		FD_SET(SocketFD, &readfds);
 		FD_SET(SocketFD, &writefds);
-		fflush(stdout);
+		//fflush(stdout);
 
 		if ((select(SocketFD + 1, &readfds, &writefds, NULL, NULL)) == -1)
 		{
 			std::cout << "select failed\n" << std::endl;
 			return 1;
 		}
-		Is_Set = true;
-		//try to receive some data, this is a blocking call
 
-  		if (recvfrom(SocketFD, (char *)&receivePacket, BUFLEN, 0,
-                 (struct sockaddr *) &clientAddress,
-                 &clientAddressLength) == -1)
-  		{
-  			std::cout << "recvfrom failed\n" << std::endl;
-  			return 1;
-  		}
-
-		if ((char *)receivePacket.Sound != NULL)
+		if (FD_ISSET(SocketFD, &readfds))
 		{
-			Audio->setRetenc(receivePacket.Retenc);
-			receivePacket.Size = 480;
-			Audio->setData(receivePacket.Sound);
-			std::cout << receivePacket.Retenc << std::endl;
+			Is_Set = true;
+  			if (recvfrom(SocketFD, (char *)&receivePacket, BUFLEN, 0,
+                	 (struct sockaddr *) &clientAddress,
+            	     &clientAddressLength) == -1)
+  			{
+  				std::cout << "recvfrom failed\n" << std::endl;
+  				return 1;
+  			}
+
+			if ((char *)receivePacket.Sound != NULL)
+			{
+				Audio->setRetenc(receivePacket.Retenc);
+				Audio->setData(receivePacket.Sound);
+				receivePacket.Size = 480;
+				//std::cout << receivePacket.Retenc << std::endl;
+			}
 		}
 		if (Is_Set == true)
 		{
@@ -83,10 +85,13 @@ int 		UDPExchangeLinux::ExchangeSrvUDP()
 					sendPacket.Retenc = Audio->getRetenc();
 					sendPacket.Size = 480;
 					memcpy(sendPacket.Sound, Audio->getData(), 480);
-					//std::cout << rPacket.Retenc << std::endl;
+					std::cout << sendPacket.Retenc << std::endl;
 				}
 				//now reply the client with the same data
-				if (sendto(SocketFD, (char *)&sendPacket, BUFLEN, 0, servinfo->ai_addr, servinfo->ai_addrlen) == -1)
+				std::cout << "ici2" << std::endl;
+				//std::cout << sendPacket.Sound << std::endl;
+				if (sendto(SocketFD, (char *)&sendPacket, BUFLEN, 0,
+					servinfo->ai_addr, servinfo->ai_addrlen) == -1)
 				{
 					std::cerr << "sendto failed\n" << std::endl;
 					return 1;
@@ -95,6 +100,7 @@ int 		UDPExchangeLinux::ExchangeSrvUDP()
 		}
 	}
 	close(SocketFD);
+	Audio->stop();
 	return 0;
 }
 
@@ -130,7 +136,7 @@ void		UDPExchangeLinux::InitClientUDP()
 	//si_otherCli.sin_family = AF_INET;
 	//si_otherCli.sin_port = htons(PORT);
 	//si_otherCli.sin_addr.S_un.S_addr = inet_addr(SERVER);
-	//std::cout << "Init Client UDP : done.\n" << std::endl;
+	std::cout << "Init Client UDP : done.\n" << std::endl;
 }
 
 int		UDPExchangeLinux::ExchangeCliUDP()
@@ -159,9 +165,9 @@ int		UDPExchangeLinux::ExchangeCliUDP()
 
 		if (FD_ISSET(ClientSocket, &Clientwritefds))
 		{
-			Is_Struct_Set = true;
 			if (Audio->getData() != NULL)
 			{
+				Is_Struct_Set = true;
 				sendPacket.Retenc = Audio->getRetenc();
 				sendPacket.Size = 480;
 				memcpy(sendPacket.Sound, Audio->getData(), 480);
@@ -169,7 +175,7 @@ int		UDPExchangeLinux::ExchangeCliUDP()
 			}
 			if (sendto(ClientSocket, (char *)&sendPacket, BUFLEN, 0, servinfo->ai_addr, servinfo->ai_addrlen) == -1)
 			{
-				std::cerr << "sendto failed\n" << std::endl;
+				std::cerr << "sendto() failed\n" << std::endl;
 				return 1;
 			}
 		}
@@ -182,11 +188,11 @@ int		UDPExchangeLinux::ExchangeCliUDP()
 		{
 			if (FD_ISSET(ClientSocket, &Clientreadfds))
 			{
-				if (recvfrom(SocketFD, (char *)&receivePacket, BUFLEN, 0,
-                 (struct sockaddr *) &clientAddress,
-                 &clientAddressLength) == -1)
+			if (recvfrom(ClientSocket, (char *)&receivePacket, BUFLEN, 0,
+                	 (struct sockaddr *) &clientAddress,
+            	     &clientAddressLength) == -1)
 				{
-					std::cerr << "recvfrom failed\n" << std::endl;
+					std::cerr << "recvfrom() failed\n" << std::endl;
 					return 1;
 				}
 				if ((char *)receivePacket.Sound != NULL)
@@ -194,6 +200,7 @@ int		UDPExchangeLinux::ExchangeCliUDP()
 					Audio->setReceivedRetenc(receivePacket.Retenc);
 					Audio->setReceivedData(receivePacket.Sound);
 					receivePacket.Size = 480;
+					std::cout << "receivePacket ici" << std::endl;
 					//std::cout << rPacket.Retenc << std::endl;
 					//Audio->setData(Packet.Sound);
 					//Audio->setRetenc(Packet.Retenc);
@@ -203,6 +210,8 @@ int		UDPExchangeLinux::ExchangeCliUDP()
 		}
 	}
 	close(ClientSocket);
+	Audio->stop();
+	std::cout << "ici3" << std::endl;
 	return 0;
 }
 
