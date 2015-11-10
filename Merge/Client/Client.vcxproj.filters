@@ -49,6 +49,12 @@
     <Filter Include="Fichiers d%27en-tête\Abstraction\TCP">
       <UniqueIdentifier>{6b320a74-f129-4755-995e-bd306ffc28cc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Protocol">
+      <UniqueIdentifier>{94d77781-19c0-44b5-9a5b-e43b5b44730e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Protocol">
+      <UniqueIdentifier>{cef23408-385b-4819-96f8-73691b3cca0a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NetworkServices.hpp">
@@ -87,6 +93,15 @@
     <ClInclude Include="ClientTCPWin.hpp">
       <Filter>Fichiers d%27en-tête\TCP-CLIENT</Filter>
     </ClInclude>
+    <ClInclude Include="UDPExchangeLinux.hpp">
+      <Filter>Fichiers d%27en-tête\UDP-CLIENT</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol.hpp">
+      <Filter>Fichiers d%27en-tête\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorCodes.h">
+      <Filter>Fichiers d%27en-tête\Protocol</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -109,6 +124,12 @@
     </ClCompile>
     <ClCompile Include="UDPExchangeWin.cpp">
       <Filter>Fichiers sources\UDP-CLIENT</Filter>
+    </ClCompile>
+    <ClCompile Include="UDPExchangeLinux.cpp">
+      <Filter>Fichiers sources\UDP-CLIENT</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol.cpp">
+      <Filter>Fichiers sources\Protocol</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

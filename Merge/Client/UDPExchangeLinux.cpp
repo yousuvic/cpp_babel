@@ -1,5 +1,4 @@
-#ifdef _WIN32
-#else
+#ifdef __linux__
 
 #include	"UDPExchangeLinux.hpp"
 

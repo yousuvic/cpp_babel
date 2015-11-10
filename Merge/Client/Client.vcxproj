@@ -24,12 +24,15 @@
     <ClInclude Include="ClientController.hpp" />
     <ClInclude Include="ClientTCPWin.hpp" />
     <ClInclude Include="EncodeManager.hpp" />
+    <ClInclude Include="ErrorCodes.h" />
     <ClInclude Include="IAudio.hpp" />
     <ClInclude Include="IClientTCP.h" />
     <ClInclude Include="IEncode.hpp" />
     <ClInclude Include="IUDPExchange.hpp" />
     <ClInclude Include="NetworkData.h" />
     <ClInclude Include="NetworkServices.hpp" />
+    <ClInclude Include="Protocol.hpp" />
+    <ClInclude Include="UDPExchangeLinux.hpp" />
     <ClInclude Include="UDPExchangeWin.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -39,6 +42,8 @@
     <ClCompile Include="EncodeManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="NetworkServices.cpp" />
+    <ClCompile Include="Protocol.cpp" />
+    <ClCompile Include="UDPExchangeLinux.cpp" />
     <ClCompile Include="UDPExchangeWin.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
