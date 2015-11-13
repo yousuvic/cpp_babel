@@ -20,7 +20,7 @@ typedef	struct	s_packet
 	unsigned char	encSound[480];
 }				t_packet;
 
-struct Packet 
+/*struct Packet 
 {
 
 	unsigned int packet_type;
@@ -36,6 +36,6 @@ struct Packet
 		printf("%s\n", data);
 		memset(data, 0, strlen(data));
 	}
-};
+};*/
 
 #endif // !NETWORKDATA_H

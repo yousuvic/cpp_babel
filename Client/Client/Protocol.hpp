@@ -8,7 +8,7 @@
 class Protocol
 {
 public:
-	Protocol();
+	Protocol(int socket);
 	~Protocol();
 
 	/*

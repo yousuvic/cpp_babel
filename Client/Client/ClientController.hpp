@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "NetworkData.h"
+#include "Protocol.hpp"
 
 #ifdef _WIN32
 	#include <winsock2.h>
@@ -18,7 +19,11 @@
 class 		ClientController
 {
 private:
+	PacketTypes			typePacket;
 
+	/*
+	**	Win OR Linux
+	*/
 #ifdef _WIN32
 	ClientTCPWin*		_Tcp;
 	UDPExchangeWin		srv;

@@ -15,6 +15,6 @@
 class	NetworkServices
 {
 public:
-	static int sendMessage(int curSocket, t_packet *, int messageSize);
+	static int sendMessage(int curSocket, char *, int messageSize);
 	static int receiveMessage(int curSocket, char * buffer, int bufSize);
 };

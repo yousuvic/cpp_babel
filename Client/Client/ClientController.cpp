@@ -85,6 +85,8 @@ ClientController::ClientController(void)
 	packet.serialize(packet_data);
 
 	NetworkServices::sendMessage(network->ConnectSocket, packet_data, packet_size);*/
+
+	Protocol::Protocol(_Tcp->getConnectSocket());
 }
 
 ClientController::~ClientController(void)
