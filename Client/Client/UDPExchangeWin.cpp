@@ -42,7 +42,7 @@ int		UDPExchangeWin::ExchangeSrvUDP()
 	Audio->initAudio();
 	Audio->start();
 
-	tv.tv_sec = 10;
+	tv.tv_sec = 5;
 	tv.tv_usec = 0;
 	//keep listening for data
 	while (1)
@@ -154,7 +154,7 @@ int		UDPExchangeWin::ExchangeCliUDP()
 	Audio->initAudio();
 	Audio->start();
 
-	tv.tv_sec = 10;
+	tv.tv_sec = 5;
 	tv.tv_usec = 0;
 	//start communication
 	while (1)
@@ -202,7 +202,7 @@ int		UDPExchangeWin::ExchangeCliUDP()
 		{
 			if (FD_ISSET(ClientSocket, &Clientreadfds))
 			{
-				if (recvfrom(ClientSocket, (char *)&receivePacket, BUFLEN, 0, (struct sockaddr *)&si_other, &slen) == SOCKET_ERROR)
+				if (recvfrom(ClientSocket, (char *)&receivePacket, BUFLEN, 0, (struct sockaddr *) &si_otherCli, &slenClient) == SOCKET_ERROR)
 				{
 					printf("recvfrom() failed with error code : %d", WSAGetLastError());
 					exit(EXIT_FAILURE);
