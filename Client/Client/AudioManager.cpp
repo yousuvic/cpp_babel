@@ -1,9 +1,5 @@
 #include "AudioManager.hpp"
 
-#ifdef _WIN32
-	#include <Windows.h>
-#endif
-
 AudioManager::AudioManager()
 {
 	this->_enc = new EncodeManager;
