@@ -52,7 +52,7 @@ void ClientController::sendActionPackets()
 		memcpy(Packet.encSound, Audio->getSound(), MAX_PACKET_SIZE);
 		NetworkServices::sendMessage(_Tcp->getConnectSocket(), &Packet, PACKET_SIZE);
 	}*/
-	Caller = false;
+	Caller = true;
 	if (Caller == true)
 	{
 		srv.InitSrvUDP();
@@ -68,21 +68,12 @@ void ClientController::sendActionPackets()
 
 ClientController::ClientController(void)
 {
-	IClientTCP	*_Tcp = NULL;
+	/*_Tcp = new ClientTCP();
 
-	#ifdef WIN32
-		_Tcp = new ClientTCPWin();
-		std::cout << "* Running in Windows env *" << std::endl;
-	#else  //UNIX
-		_Tcp = new ClientTCPLinux();
-		std::cout << "* Running in UNIX env *" << std::endl;
-	#endif
-
-
-	_Tcp->SocketInit();
-	_Tcp->SocketConnect(IP_SERVER);
-	_Tcp->socketUnlock();
-
+	this->_Tcp->SocketInit();
+	this->_Tcp->SocketConnect(IP_SERVER);
+	this->_Tcp->SocketDeblock();*/
+	
 
 	// send init packet
 	/*const unsigned int packet_size = sizeof(Packet);
@@ -94,8 +85,6 @@ ClientController::ClientController(void)
 	packet.serialize(packet_data);
 
 	NetworkServices::sendMessage(network->ConnectSocket, packet_data, packet_size);*/
-
-	Protocol::Protocol(_Tcp->getConnectSocket());
 }
 
 ClientController::~ClientController(void)

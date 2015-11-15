@@ -2,6 +2,7 @@
 #else
 
 #include "ClientTCPLinux.hpp"
+#include <iostream>
 
 int		ClientTCPLinux::receivePackets(char *recvbuf)
 {
@@ -9,92 +10,55 @@ int		ClientTCPLinux::receivePackets(char *recvbuf)
 
 	if (iResult == 0)
 	{
-		printf("Connection closed\n");
-		//closesocket(ConnectSocket);
-		exit(1);
+		std::cout << "Connection closed\n" << std::endl;
+		close(ConnectSocket);
+		return 1;
 	}
-
 	return iResult;
 }
 
 void	ClientTCPLinux::SocketInit(void)
-{/*
-	// create WSADATA object
-	WSADATA wsaData;
-	// socket
-	ConnectSocket = INVALID_SOCKET;
-	// holds address info for socket to connect to
-	
-	// Initialize Winsock
-	iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
-	if (iResult != 0)
-	{
-		printf("WSAStartup failed with error: %d\n", iResult);
-		exit(1);
-	}
-	// set address info
-	ZeroMemory(&hints, sizeof(hints));
-	hints.ai_family = AF_UNSPEC;
-	hints.ai_socktype = SOCK_STREAM;
-	hints.ai_protocol = IPPROTO_TCP;  //TCP connection!!!*/
+{
+	std::cout << "Init Client TCP...\n" << std::endl;
 }
 
 void	ClientTCPLinux::SocketConnect(char *ip)
 {
-	/*iResult = getaddrinfo(ip, DEFAULT_PORT, &hints, &result);
-	if (iResult != 0)
+	if((ConnectSocket = socket(AF_INET, SOCK_STREAM, 0)) < 0)
 	{
-		printf("getaddrinfo failed with error: %d\n", iResult);
-		WSACleanup();
+		std::cerr << "socket failed\n" << std::endl;
 		exit(1);
 	}
-	// Attempt to connect to an address until one succeeds
-	for (ptr = result; ptr != NULL; ptr = ptr->ai_next)
+
+	memset(&serveraddr, 0x00, sizeof(struct sockaddr_in));
+	serveraddr.sin_family = AF_INET;
+	serveraddr.sin_port = htons(DEFAULT_PORT);
+ 	
+ 	if((serveraddr.sin_addr.s_addr = inet_addr(IP_SERVER)) == (unsigned long)INADDR_NONE)
 	{
-		// Create a SOCKET for connecting to server
-		ConnectSocket = socket(ptr->ai_family, ptr->ai_socktype,
-			ptr->ai_protocol);
-		if (ConnectSocket == INVALID_SOCKET)
+		hostp = gethostbyname(IP_SERVER);
+		if(hostp == (struct hostent *)NULL)
 		{
-			printf("socket failed with error: %ld\n", WSAGetLastError());
-			WSACleanup();
-			exit(1);
+			std::cerr << "host not found\n" << std::endl;
+			close(ConnectSocket);
+			exit(-1);
 		}
-		// Connect to server.
-		iResult = connect(ConnectSocket, ptr->ai_addr, (int)ptr->ai_addrlen);
-		if (iResult == SOCKET_ERROR)
-		{
-			closesocket(ConnectSocket);
-			ConnectSocket = INVALID_SOCKET;
-			printf("The server is down... did not connect");
-		}
-	}*/
+		memcpy(&serveraddr.sin_addr, hostp->h_addr, sizeof(serveraddr.sin_addr));
+	}
+
+
+	if((connect(ConnectSocket, (struct sockaddr *)&serveraddr, sizeof(serveraddr))) < 0)
+	{
+		std::cerr << "connect failed\n" << std::endl;
+		close(ConnectSocket);
+		exit(-1);
+	}
+	else
+		std::cout << "Connection established...\n" << std::endl;
 }
 
-void	ClientTCPLinux::SocketDeblock(void)
-{/*
-	// no longer need address info for server
-	freeaddrinfo(result);
-	// if connection failed
-	if (ConnectSocket == INVALID_SOCKET)
-	{
-		printf("Unable to connect to server!\n");
-		WSACleanup();
-		exit(1);
-	}
-	// Set the mode of the socket to be nonblocking
-	u_long iMode = 1;
-	iResult = ioctlsocket(ConnectSocket, FIONBIO, &iMode);
-	if (iResult == SOCKET_ERROR)
-	{
-		printf("ioctlsocket failed with error: %d\n", WSAGetLastError());
-		closesocket(ConnectSocket);
-		WSACleanup();
-		exit(1);
-	}
-	//disable nagle
-	char value = 1;
-	setsockopt(ConnectSocket, IPPROTO_TCP, TCP_NODELAY, &value, sizeof(value));*/
+void	ClientTCPLinux::socketUnlock(void)
+{
 }
 
 ClientTCPLinux::ClientTCPLinux(void)

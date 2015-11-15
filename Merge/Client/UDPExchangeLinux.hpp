@@ -1,8 +1,5 @@
 #pragma once
 
-#ifdef _WIN32
-#else
-
 #include <stdio.h>
 #include <iostream>
 #include "AudioManager.hpp"
@@ -67,7 +64,7 @@ private:
 	struct sockaddr_in	si_otherCli;
 	int					ClientSocket;
 	int					slenClient;
-	//	WSADATA				WsaData;
+//	WSADATA				WsaData;
 
 	/*
 	**	Select Client
@@ -78,5 +75,3 @@ private:
 	struct timeval			tv;
 
 };
-
-#endif // __linux__

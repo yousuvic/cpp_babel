@@ -9,7 +9,6 @@ SRC			=	Client/AudioManager.cpp		\
 				Client/EncodeManager.cpp	\
 				Client/Main.cpp				\
 				Client/NetworkServices.cpp	\
-				Client/Protocol.cpp			\
 
 OBJ			=	$(SRC:.cpp=.o)
 
