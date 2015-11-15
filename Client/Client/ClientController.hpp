@@ -1,26 +1,38 @@
-#ifndef CLIENTCONTROLLER_HPP
-#define	CLIENTCONTROLLER_HPP
+#pragma once
 
 #include <iostream>
-#include "ClientTCP.hpp"
 #include "NetworkData.h"
-#include "UDPExchange.hpp"
+#include "Protocol.hpp"
 
 #ifdef _WIN32
+	#include <winsock2.h>
+	#include <Windows.h>
+	#include "ClientTCPWin.hpp"
+	#include "UDPExchangeWin.hpp"
+#else
+	#include "ClientTCPLinux.hpp"
+	#include "UDPExchangeLinux.hpp"
+#endif
 
-#include <winsock2.h>
-#include <Windows.h>
+#define		PACKET_SIZE	sizeof(t_packet)
 
-#endif // _WIN32
-
-#define	PACKET_SIZE	sizeof(t_packet)
-
-class ClientController
+class 		ClientController
 {
 private:
-	ClientTCP*		_Tcp;
-	UDPExchange		srv;
-	bool			Caller = false;
+	PacketTypes			typePacket;
+	Protocol			*_protocol;
+	/*
+	**	Win OR Linux
+	*/
+#ifdef _WIN32
+	ClientTCPWin*		_Tcp;
+	UDPExchangeWin		srv;
+	bool				Caller = false;
+#else
+	ClientTCPLinux*		_Tcp;
+	UDPExchangeLinux	srv;
+	bool				Caller;
+#endif
 
 public:
 	ClientController();
@@ -29,5 +41,3 @@ public:
 	void sendActionPackets();
 	void update();
 };
-
-#endif // !ClientController_HPP

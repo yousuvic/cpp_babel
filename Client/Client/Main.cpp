@@ -1,8 +1,12 @@
-#include <process.h>
 #include "AudioManager.hpp"
 #include "ClientController.hpp"
-#include "UDPExchange.hpp"
 
+#ifdef _WIN32
+	#include <process.h>
+	#include "UDPExchangeWin.hpp"
+#else
+	#include "UDPExchangeLinux.hpp"
+#endif
 
 void clientLoop(void);
 
@@ -37,13 +41,21 @@ delete a;
 return (0);
 }*/
 
-/*int				main()
+/*int					main()
 {
-	UDPExchange	srv;
+	IUDPExchange	*serv = NULL;
 
-	srv.InitSrvUDP();
-	srv.ExchangeSrvUDP();
+	#ifdef WIN32
+		serv = new UDPExchangeWin();
+		std::cout << "* Running in Windows env *" << std::endl;
+	#else  //UNIX
+		serv = new UDPExchangeLinux();
+		std::cout << "* Running in UNIX env *" << std::endl;
+	#endif
 
-	//srv.InitClientUDP();
-	//srv.ExchangeCliUDP();
+	serv->InitSrvUDP();
+	serv->ExchangeSrvUDP();
+
+	//serv->InitClientUDP();
+	//serv->ExchangeCliUDP();
 }*/

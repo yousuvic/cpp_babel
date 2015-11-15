@@ -68,12 +68,21 @@ void ClientController::sendActionPackets()
 
 ClientController::ClientController(void)
 {
-	/*_Tcp = new ClientTCP();
+	/*_Tcp = new ClientTCPWin();
 
-	this->_Tcp->SocketInit();
-	this->_Tcp->SocketConnect(IP_SERVER);
-	this->_Tcp->SocketDeblock();*/
-	
+	this->_Tcp->socketInit();
+	this->_Tcp->socketConnect(IP_SERVER);
+	this->_Tcp->socketUnlock();
+	_protocol = new	Protocol(_Tcp->getConnectSocket());
+
+	_protocol->requestAuth();
+	//_protocol->signUp(username, password); GUI DE ROMAIN !
+	_protocol->freindRequest(0, "yousuvic");
+	_protocol->freindValidation(true, "yousuvic");
+	_protocol->checkStatus("yousuvic");
+	_protocol->sendIp("toto", "mon ip de mort", 4242);*/
+
+
 
 	// send init packet
 	/*const unsigned int packet_size = sizeof(Packet);
@@ -85,6 +94,7 @@ ClientController::ClientController(void)
 	packet.serialize(packet_data);
 
 	NetworkServices::sendMessage(network->ConnectSocket, packet_data, packet_size);*/
+
 }
 
 ClientController::~ClientController(void)

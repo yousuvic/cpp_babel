@@ -1,8 +1,8 @@
-#ifndef IAUDIO_HPP
-#define	IAUDIO_HPP
+#pragma once	
 
 #include <iostream>
 #include <fstream>
+#include <iterator>
 #include <utility>
 #include "IEncode.hpp"
 
@@ -32,15 +32,4 @@ public:
 	virtual void					setRetenc(int) = 0;
 	virtual	void					setReceivedData(unsigned char *) = 0;
 	virtual	void						setReceivedRetenc(int) = 0;
-	
-
-	/*virtual void					initialize() = 0;
-	virtual void					initInputDevice() = 0;
-	virtual void					initOutputDevice() = 0;
-	virtual void					openPlayStream() = 0;
-	virtual void					openRecordStream() = 0;
-	virtual void					recordSound() = 0;
-	virtual void					playSound() = 0;*/
 };
-
-#endif // !IAUDIO_HPP

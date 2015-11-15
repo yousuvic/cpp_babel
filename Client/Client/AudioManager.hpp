@@ -38,7 +38,7 @@ public:
 	virtual unsigned char*			getData() const;
 	virtual	void					setReceivedData(unsigned char *);
 	virtual	unsigned char			*getReceivedData() const;
-	virtual	void						setReceivedRetenc(int);
+	virtual	void					setReceivedRetenc(int);
 	virtual	int						getReceivedRetenc() const;
 
 	/*virtual void					initialize();

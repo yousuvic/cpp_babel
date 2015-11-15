@@ -1,7 +1,4 @@
 #include "AudioManager.hpp"
-#ifdef _WIN32
-#include <Windows.h>
-#endif
 
 AudioManager::AudioManager()
 {
@@ -64,7 +61,7 @@ void		AudioManager::initInput()
 {
 	this->_inputParam.device = Pa_GetDefaultInputDevice();
 	this->_inputParam.channelCount = 2;
-	this->_inputParam.sampleFormat = PA_SAMPLE_TYPE;
+	this->_inputParam.sampleFormat = PA_TYPE;
 	this->_inputParam.suggestedLatency = Pa_GetDeviceInfo(this->_inputParam.device)->defaultLowInputLatency;
 	this->_inputParam.hostApiSpecificStreamInfo = NULL;
 }
@@ -73,7 +70,7 @@ void		AudioManager::initOutput()
 {
 	this->_outputParam.device = Pa_GetDefaultOutputDevice();
 	this->_outputParam.channelCount = 2;
-	this->_outputParam.sampleFormat = PA_SAMPLE_TYPE;
+	this->_outputParam.sampleFormat = PA_TYPE;
 	this->_outputParam.suggestedLatency = Pa_GetDeviceInfo(this->_outputParam.device)->defaultLowOutputLatency;
 	this->_outputParam.hostApiSpecificStreamInfo = NULL;
 }
