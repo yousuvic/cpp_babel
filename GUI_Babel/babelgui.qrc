@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="babelGUI">
+    <file>Resources/lilrom.jpg</file>
+    <file>Resources/change.png</file>
+    <file>Resources/Abscent.png</file>
+    <file>Resources/Busy.png</file>
+    <file>Resources/Offline.png</file>
+    <file>Resources/Online.png</file>
+    <file>Resources/babelLogo.png</file>
+    <file>Resources/home.png</file>
+  </qresource>
+</RCC>

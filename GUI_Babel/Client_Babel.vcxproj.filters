@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{03eb660a-4919-467b-853a-d078a00cdbbc}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{fbcdc298-3e4e-4709-8bb9-8717a7255f1a}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{ba6064a4-50a3-4605-9782-d10f7042499f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GUI">
+      <UniqueIdentifier>{a84f1b8a-95c2-4c67-9d5c-d1f5ab35837e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Audio">
+      <UniqueIdentifier>{fb438e71-98d3-45d6-88dc-64513591ed0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controller">
+      <UniqueIdentifier>{a525c5db-fb9c-4cdf-89fd-a0f5a7d8a4ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protocol">
+      <UniqueIdentifier>{2340a0a5-1ff0-4004-856f-28097ef8a1b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TCP-Client">
+      <UniqueIdentifier>{7f6cc90d-616d-4337-9615-7d96547ccb21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UDP-Client">
+      <UniqueIdentifier>{3aa34b74-2b94-4b89-bc4d-dfcd5d9aeb3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Abstraction">
+      <UniqueIdentifier>{924f9e0b-30ba-4961-a8ca-890c8f95a7ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controller">
+      <UniqueIdentifier>{562301c0-5e0e-4135-a46a-6e924e7c1425}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Protocol">
+      <UniqueIdentifier>{68701553-7cfb-4319-bf96-ef422a1174d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TCP-Client">
+      <UniqueIdentifier>{eb7ed91f-aff6-47d1-b7a0-292823fafa7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UDP-Client">
+      <UniqueIdentifier>{168c5a40-521f-4751-8148-56cb9b0a1113}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Abstraction\Audio">
+      <UniqueIdentifier>{76f7aa6d-4d4c-417f-a199-dd4786389995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Abstraction\TCP">
+      <UniqueIdentifier>{87878f88-e4f6-4c60-939a-bc764b72183b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Abstraction\UDP">
+      <UniqueIdentifier>{710d9482-f0b1-4ec8-9353-4739d8c2584d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Audio">
+      <UniqueIdentifier>{6faf85e2-406b-491f-a830-c3efb95ec711}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_babelgui.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_babelgui.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_babelgui.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_connectionwidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_connectionwidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_homewidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_homewidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_conversationwidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_conversationwidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_callwidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_callwidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_slidingstackedwidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_slidingstackedwidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_waitingspinnerwidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_waitingspinnerwidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="babelgui.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="callwidget.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="connectionwidget.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="conversationwidget.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="homewidget.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="slidingstackedwidget.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="waitingspinnerwidget.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_Core\AudioManager.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_Core\EncodeManager.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_Core\ClientController.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_Core\Protocol.cpp">
+      <Filter>Source Files\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_Core\ClientTCPLinux.cpp">
+      <Filter>Source Files\TCP-Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_Core\ClientTCPWin.cpp">
+      <Filter>Source Files\TCP-Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_Core\UDPExchangeLinux.cpp">
+      <Filter>Source Files\UDP-Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_Core\UDPExchangeWin.cpp">
+      <Filter>Source Files\UDP-Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client_Core\NetworkServices.cpp">
+      <Filter>Source Files\TCP-Client</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="babelgui.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="babelgui.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="connectionwidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="homewidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="conversationwidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="callwidget.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="babelgui.h">
+      <Filter>Header Files\GUI</Filter>
+    </CustomBuild>
+    <CustomBuild Include="callwidget.h">
+      <Filter>Header Files\GUI</Filter>
+    </CustomBuild>
+    <CustomBuild Include="connectionwidget.h">
+      <Filter>Header Files\GUI</Filter>
+    </CustomBuild>
+    <CustomBuild Include="conversationwidget.h">
+      <Filter>Header Files\GUI</Filter>
+    </CustomBuild>
+    <CustomBuild Include="homewidget.h">
+      <Filter>Header Files\GUI</Filter>
+    </CustomBuild>
+    <CustomBuild Include="slidingstackedwidget.h">
+      <Filter>Header Files\GUI</Filter>
+    </CustomBuild>
+    <CustomBuild Include="waitingspinnerwidget.h">
+      <Filter>Header Files\GUI</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_babelgui.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_connectionwidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_homewidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_conversationwidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_callwidget.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\UDPExchangeLinux.hpp">
+      <Filter>Header Files\UDP-Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\UDPExchangeWin.hpp">
+      <Filter>Header Files\UDP-Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\ClientTCPLinux.hpp">
+      <Filter>Header Files\TCP-Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\ClientTCPWin.hpp">
+      <Filter>Header Files\TCP-Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\NetworkData.h">
+      <Filter>Header Files\TCP-Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\AudioManager.hpp">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\EncodeManager.hpp">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\ErrorCodes.h">
+      <Filter>Header Files\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\Protocol.hpp">
+      <Filter>Header Files\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\ClientController.hpp">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\AudioOption.h">
+      <Filter>Header Files\Abstraction</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\IUDPExchange.hpp">
+      <Filter>Header Files\Abstraction\UDP</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\IClientTCP.h">
+      <Filter>Header Files\Abstraction\TCP</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\IAudio.hpp">
+      <Filter>Header Files\Abstraction\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\IEncode.hpp">
+      <Filter>Header Files\Abstraction\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="Client_Core\NetworkServices.hpp">
+      <Filter>Header Files\TCP-Client</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
