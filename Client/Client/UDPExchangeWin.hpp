@@ -25,7 +25,7 @@ typedef struct s_Packet2
 
 //#pragma comment(lib,"ws2_32.lib") //Winsock Library
 
-#define SERVER 		"87.88.229.146"
+#define SERVER 		"10.20.86.71"
 
 
 class UDPExchangeWin : IUDPExchange

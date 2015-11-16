@@ -170,6 +170,7 @@ int		UDPExchangeWin::ExchangeCliUDP()
 
 		if (FD_ISSET(ClientSocket, &Clientwritefds))
 		{
+			for (int i = 0; i <= 10000000; i++);
 			memset(sendPacket.Sound, 0, 480);
 			if (Audio->getData() != NULL)
 			{
@@ -190,7 +191,7 @@ int		UDPExchangeWin::ExchangeCliUDP()
 		//clear the buffer by filling null, it might have previously received data
 		//memset(buf, '\0', BUFLEN);
 		//try to receive some data, this is a blocking call
-		/*if (Is_Struct_Set == true)
+		if (Is_Struct_Set == true)
 		{
 			if (FD_ISSET(ClientSocket, &Clientreadfds))
 			{
@@ -204,13 +205,13 @@ int		UDPExchangeWin::ExchangeCliUDP()
 					Audio->setReceivedRetenc(receivePacket.Retenc);
 					Audio->setReceivedData(receivePacket.Sound);
 					receivePacket.Size = 480;
-					std::cout << "tttttttttttttttttttttt" << std::endl;
+					//std::cout << "tttttttttttttttttttttt" << std::endl;
 					//Audio->setData(Packet.Sound);
 					//Audio->setRetenc(Packet.Retenc);
 					//Packet.Size = 480;
 				}
 			}
-		}*/
+		}
 	}
 	closesocket(ClientSocket);
 	Audio->stop();
