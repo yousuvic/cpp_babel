@@ -18,6 +18,8 @@ public:
 	conversationWidget(std::string user, QStackedWidget *sW, QWidget *parent = 0);
 	~conversationWidget();
 
+signals:
+	void	running();
 private:
 	QStackedWidget *_sW;
 	Ui::conversationWidget ui;

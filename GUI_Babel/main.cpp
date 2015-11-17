@@ -1,4 +1,3 @@
-#include "Client_Core/AudioManager.hpp"
 #include "Client_Core/ClientController.hpp"
 
 #ifdef _WIN32
@@ -12,9 +11,9 @@
 #include "connectionwidget.h"
 #include <QtWidgets/QApplication>
 
-void clientLoop(void);
+//void clientLoop(void);
 
-ClientController * client;
+//ClientController * client;
 
 /*void clientLoop()
 {

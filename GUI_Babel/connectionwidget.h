@@ -12,6 +12,7 @@ public:
 	connectionWidget(QWidget *parent = 0);
 	~connectionWidget();
 
+
 private:
 	Ui::connectionWidget ui;
 

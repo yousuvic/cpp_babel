@@ -21,7 +21,7 @@ typedef struct s_Packet2
 }				t_Packet2;
 
 #define BUFLEN 		sizeof(t_Packet)
-#define PORT 		50014
+#define PORT 		13
 
 //#pragma comment(lib,"ws2_32.lib") //Winsock Library
 

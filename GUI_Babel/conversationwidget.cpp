@@ -32,7 +32,6 @@ void conversationWidget::lauchCall()
 
 	worker->moveToThread(thread);
 	thread->start();
-
-	//thread->wait(); // If the thread is not running, this will immediately return.
-	//worker->requestWork();
+	connect(this, SIGNAL(running()), worker, SLOT(run()));
+	emit running();
 }

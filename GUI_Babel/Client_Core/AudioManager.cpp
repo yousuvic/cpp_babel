@@ -87,7 +87,7 @@ int			recordCallback(const void *input, void *output,
 	(void)timeInfo;
 	(void)statusFlags;
 	(void)output;
-
+	(void)framesPerBuffer;
 
 	dis->setData(dis->getEnc()->encodeAudio(in, &retenc));
 	dis->setRetenc(retenc);
@@ -105,6 +105,7 @@ int			playCallback(const void *input, void *output,
 	(void)timeInfo;
 	(void)statusFlags;
 	(void)input;
+	(void)framesPerBuffer;
 
 	//dis->getEnc()->decodeAudio(dis->getData().first, out, dis->getData().second);
 	//dis->getEnc()->decodeAudio(dis->getData(), out, dis->getRetenc());

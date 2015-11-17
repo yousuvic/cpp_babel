@@ -6,22 +6,21 @@
 #include <QDebug>
 #include "Client_Core/ClientController.hpp"
 
-//ClientController * client;
+ClientController * client;
 
-/*void clientLoop()
+void clientLoop()
 {
 	while (true)
 	{
 		client->update();
 	}
-}*/
+}
 
 void	Worker::run()
 {
-	//client = new ClientController();
 	mutex.lock();
-	qDebug() << "toto";
-	//clientLoop();
+	client = new ClientController();
+	clientLoop();
 	mutex.unlock();
 }
 
@@ -30,10 +29,6 @@ QObject(parent)
 {
 	_working = false;
 	_abort = false;
-
-	QTimer *timer = new QTimer(this);
-	connect(timer, SIGNAL(timeout()), this, SLOT(run()));
-	timer->start(100);
 }
 
 Worker::~Worker()

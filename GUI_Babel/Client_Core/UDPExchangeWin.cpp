@@ -53,10 +53,8 @@ int		UDPExchangeWin::ExchangeSrvUDP()
 		FD_SET(SocketFD, &readfds);
 		FD_SET(SocketFD, &writefds);
 		//printf("Waiting for data...");
-		//fflush(stdout);
 
 		//clear the buffer by filling null, it might have previously received data
-		//memset(Packet, '\0', BUFLEN);
 		if ((select(SocketFD + 1, &readfds, &writefds, NULL, &tv)) == -1)
 		{
 			printf("Select error\n");
@@ -77,11 +75,6 @@ int		UDPExchangeWin::ExchangeSrvUDP()
 				Audio->setReceivedRetenc(receivePacket.Retenc);
 				Audio->setReceivedData(receivePacket.Sound);
 				receivePacket.Size = 480;
-				//std::cout << Audio->getReceivedRetenc() << std::endl;
-				/*Audio->setRetenc(Packet.Retenc);
-				Packet.Size = 480;
-				Audio->setData(Packet.Sound);
-				std::cout << Packet.Retenc << std::endl;*/
 			}
 		}
 		if (FD_ISSET(SocketFD, &writefds))
@@ -170,7 +163,7 @@ int		UDPExchangeWin::ExchangeCliUDP()
 
 		if (FD_ISSET(ClientSocket, &Clientwritefds))
 		{
-			//for (int i = 0; i <= 10000000; i++);
+			for (int i = 0; i <= 10000000; i++);
 			memset(sendPacket.Sound, 0, 480);
 			if (Audio->getData() != NULL)
 			{
@@ -200,10 +193,6 @@ int		UDPExchangeWin::ExchangeCliUDP()
 					Audio->setReceivedRetenc(receivePacket.Retenc);
 					Audio->setReceivedData(receivePacket.Sound);
 					receivePacket.Size = 480;
-					//std::cout << "tttttttttttttttttttttt" << std::endl;
-					//Audio->setData(Packet.Sound);
-					//Audio->setRetenc(Packet.Retenc);
-					//Packet.Size = 480;
 				}
 			}
 		}

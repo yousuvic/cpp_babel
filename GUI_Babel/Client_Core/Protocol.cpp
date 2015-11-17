@@ -82,6 +82,7 @@ int		Protocol::checkStatus(std::string friendUsername)
 
 void	Protocol::sendIp(std::string friendUsername, std::string ip, int port)
 {
+	(void)port;
 	NetworkServices::sendMessage(_socket, (char *)ip.c_str(), strlen(ip.c_str()));
 }
 

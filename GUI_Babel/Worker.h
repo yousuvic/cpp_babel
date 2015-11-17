@@ -23,9 +23,9 @@ private:
 
 
 signals:
-	void workRequested();
-	void valueChanged(const QString &value);
-	void finished();
+	void	workRequested();
+	void	valueChanged(const QString &value);
+	void	finished();
 };
 
 #endif // WORKER_H
