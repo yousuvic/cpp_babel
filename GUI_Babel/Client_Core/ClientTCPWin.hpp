@@ -6,12 +6,10 @@
 #include "IClientTCP.h"
 
 #define DEFAULT_BUFLEN		480
-#define DEFAULT_PORT		"50014"
-#define	IP_SERVER			"87.88.229.146"
+#define DEFAULT_PORT		"13"
+#define	IP_SERVER			"93.31.237.180"
 
-#include <winsock2.h>
 #include <ws2tcpip.h>
-#include <Windows.h>
 
 // Need to link with Ws2_32.lib, Mswsock.lib, and Advapi32.lib
 #pragma comment (lib, "Ws2_32.lib")

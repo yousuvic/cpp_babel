@@ -13,19 +13,12 @@ typedef struct s_Packet
 	unsigned char	Sound[480];
 }				t_Packet;
 
-typedef struct s_Packet2
-{
-	int				Retenc;
-	int				Size;
-	unsigned char	Sound[480];
-}				t_Packet2;
-
 #define BUFLEN 		sizeof(t_Packet)
-#define PORT 		50014
+#define PORT 		13
 
 //#pragma comment(lib,"ws2_32.lib") //Winsock Library
 
-#define SERVER 		"10.20.86.71"
+#define SERVER 		"93.31.237.180"
 
 
 class UDPExchangeWin : IUDPExchange
@@ -51,7 +44,7 @@ private:
 	int					slen;
 	int					recv_len;
 	t_Packet			sendPacket;
-	t_Packet2			receivePacket;
+	t_Packet			receivePacket;
 	WSADATA				wsa;
 
 	/*

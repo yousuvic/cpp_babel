@@ -52,7 +52,7 @@ void ClientController::sendActionPackets()
 		memcpy(Packet.encSound, Audio->getSound(), MAX_PACKET_SIZE);
 		NetworkServices::sendMessage(_Tcp->getConnectSocket(), &Packet, PACKET_SIZE);
 	}*/
-	Caller = true;
+	Caller = false;
 	if (Caller == true)
 	{
 		srv.InitSrvUDP();
@@ -73,11 +73,11 @@ ClientController::ClientController(void)
 	this->_Tcp->socketInit();
 	this->_Tcp->socketConnect(IP_SERVER);
 	this->_Tcp->socketUnlock();
-	_protocol = new	Protocol(_Tcp->getConnectSocket());
+	_protocol = new	Protocol(_Tcp->getConnectSocket());*/
 
-	_protocol->requestAuth();
+	//_protocol->requestAuth();
 	//_protocol->signUp(username, password); GUI DE ROMAIN !
-	_protocol->freindRequest(0, "yousuvic");
+	/*_protocol->freindRequest(0, "yousuvic");
 	_protocol->freindValidation(true, "yousuvic");
 	_protocol->checkStatus("yousuvic");
 	_protocol->sendIp("toto", "mon ip de mort", 4242);*/

@@ -16,24 +16,24 @@ void clientLoop(void);
 
 ClientController * client;
 
-void clientLoop()
+/*void clientLoop()
 {
 	while (true)
 	{
 		client->update();
 	}
-}
+}*/
 
-int			main()
+/*int			main()
 {
 	// initialize the client
 	client = new ClientController();
 
 	clientLoop();
 	return (0);
-}
+}*/
 
-/*int main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
 	babelGUI b;
@@ -42,4 +42,4 @@ int			main()
 
 	w.show();
 	return a.exec();
-}*/
+}

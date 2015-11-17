@@ -15,8 +15,24 @@ conversationWidget::~conversationWidget()
 	delete (call);
 }
 
+DWORD WINAPI myThread(LPVOID lpParameter)
+{
+	unsigned int& myCounter = *((unsigned int*)lpParameter);
+	while (myCounter < 0xFFFFFFFF) ++myCounter;
+	return 0;
+}
+
 void conversationWidget::lauchCall()
 {
 	_sW->addWidget(call);
 	_sW->setCurrentWidget(call);
+
+	thread = new QThread();
+	worker = new Worker();
+
+	worker->moveToThread(thread);
+	thread->start();
+
+	//thread->wait(); // If the thread is not running, this will immediately return.
+	//worker->requestWork();
 }

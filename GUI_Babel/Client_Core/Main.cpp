@@ -20,14 +20,14 @@ void clientLoop()
 	}
 }
 
-int			main()
+/*int			main()
 {
 	// initialize the client
 	client = new ClientController();
 
 	clientLoop();
 	return (0);
-}
+}*/
 
 
 /*int		main(int ac, char **av)

@@ -5,8 +5,6 @@
 #include "Protocol.hpp"
 
 #ifdef _WIN32
-	#include <winsock2.h>
-	#include <Windows.h>
 	#include "ClientTCPWin.hpp"
 	#include "UDPExchangeWin.hpp"
 #else

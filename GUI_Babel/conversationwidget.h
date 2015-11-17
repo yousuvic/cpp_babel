@@ -3,8 +3,12 @@
 
 #include <QWidget>
 #include <qstackedwidget.h>
+#include <windows.h>
+#include <process.h>
+#include "QThread"
 #include "ui_conversationwidget.h"
 #include "callwidget.h"
+#include "worker.h"
 
 class conversationWidget : public QWidget
 {
@@ -18,6 +22,9 @@ private:
 	QStackedWidget *_sW;
 	Ui::conversationWidget ui;
 	callWidget *call;
+
+	QThread *thread;
+	Worker *worker;
 
 private slots:
 	void lauchCall();
